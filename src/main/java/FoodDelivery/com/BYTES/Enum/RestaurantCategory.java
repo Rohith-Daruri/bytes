@@ -5,5 +5,7 @@ public enum RestaurantCategory {
     CHINESE,
     PIZZA,
     BAKERY,
-    VEGETARIAN
+    VEGETARIAN,
+    HOTEL,
+    RESORT
 }

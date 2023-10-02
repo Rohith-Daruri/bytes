@@ -30,4 +30,8 @@ public class Food_Item {
     @ManyToOne
     @JoinColumn
     Restaurant restaurant;
+
+    public boolean getAvailable() {
+        return available;
+    }
 }

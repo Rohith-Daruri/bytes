@@ -30,4 +30,8 @@ public class Restaurant {
     List<Food_Item> foodItemList = new ArrayList<>();
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
     List<OrderEntity>orderEntityList = new ArrayList<>();
+
+    public boolean getOpen() {
+        return open;
+    }
 }

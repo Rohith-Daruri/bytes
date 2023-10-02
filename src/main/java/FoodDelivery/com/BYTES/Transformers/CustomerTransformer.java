@@ -21,22 +21,7 @@ public class CustomerTransformer {
                 .build();
     }
     public static CustomerResponse ModelToResponse(Customer customer){
-        List<Food_Item> foodItemList =customer.getCart().getFoodItemList();
-        List<FoodResponse> foodResponse_List  =new ArrayList<>();
-        if(foodItemList!=null) {
-            for (Food_Item foodItem : foodItemList) {
-                FoodResponse foodResponse = FoodResponse.builder()
-                        .category(foodItem.getCategory())
-                        .price(foodItem.getPrice())
-                        .type(String.valueOf(foodItem.isVeg()))
-                        .build();
-                foodResponse_List.add(foodResponse);
-            }
-        }
-        CartResponse cartResponse = CartResponse.builder()
-                .cart_total(customer.getCart().getCart_total())
-                .foodResponseList(foodResponse_List)
-                .build();
+        CartResponse cartResponse = CartTransformer.ModelToResponse(customer.getCart());
         return CustomerResponse.builder()
                 .name(customer.getName())
                 .email(customer.getEmail())
