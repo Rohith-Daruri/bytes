@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Food_ItemRequest {
+public class MenuItemRequest {
     String name;
     CATEGORY category;
     double price;

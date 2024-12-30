@@ -16,7 +16,7 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int cart_total;
+    double cart_total;
     @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL)
     List<Food_Item> foodItemList = new ArrayList<>();
     @OneToOne

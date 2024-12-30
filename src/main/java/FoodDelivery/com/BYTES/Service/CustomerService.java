@@ -42,7 +42,7 @@ public class CustomerService {
         mimeMessageHelper.setTo(savedcustomer.getEmail());
         mimeMessageHelper.setSubject("Congratulations!!!! Registration Done");
         mimeMessageHelper.setText(text);
-        String attachment = "C:\\Users\\RD\\Downloads\\BYTES.jpg";
+        String attachment = "C:\\Users\\RD\\Desktop\\RD-Aster.pdf";
         FileSystemResource fileSystemResource = new FileSystemResource(new File(attachment));
         mimeMessageHelper.addAttachment(fileSystemResource.getFilename(),fileSystemResource);
         javaMailSender.send(mimeMessage);
@@ -67,5 +67,8 @@ public class CustomerService {
             customerResponses.add(customerResponse);
         }
         return customerResponses;
+    }
+    public final int print(int a ,int b) {
+        return  a+b;
     }
 }

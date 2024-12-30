@@ -2,12 +2,12 @@ package FoodDelivery.com.BYTES.Service;
 
 import FoodDelivery.com.BYTES.Exception.RestaurantNotFound;
 import FoodDelivery.com.BYTES.Repository.RestaurantRepository;
-import FoodDelivery.com.BYTES.Transformers.Food_ItemTransformer;
+import FoodDelivery.com.BYTES.Transformers.MenuItemTransformer;
 import FoodDelivery.com.BYTES.Transformers.RestaurantTransformer;
-import FoodDelivery.com.BYTES.dto.request.Food_ItemRequest;
+import FoodDelivery.com.BYTES.dto.request.MenuItemRequest;
 import FoodDelivery.com.BYTES.dto.request.RestaurantRequest;
 import FoodDelivery.com.BYTES.dto.response.RestaurantResponse;
-import FoodDelivery.com.BYTES.model.Food_Item;
+import FoodDelivery.com.BYTES.model.Menu_Item;
 import FoodDelivery.com.BYTES.model.Restaurant;
 import FoodDelivery.com.BYTES.utils.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,15 +42,15 @@ public class RestaurantService {
         return "No Restaurant Found!!!";
     }
 
-    public RestaurantResponse addFoodItem(Food_ItemRequest foodItemRequest,int id) {
+    public RestaurantResponse addMenuItem(MenuItemRequest foodItemRequest, int id) {
         boolean value = validation.RestaurantValidation(id);
         if(!value){
             throw new RestaurantNotFound("Restaurant Not Found!!!");
         }
         Restaurant restaurant = restaurantRepository.findById(id).get();
-        Food_Item foodItem = Food_ItemTransformer.RequestToModel(foodItemRequest);
+        Menu_Item foodItem = MenuItemTransformer.RequestToModel(foodItemRequest);
         foodItem.setRestaurant(restaurant);
-        restaurant.getFoodItemList().add(foodItem);
+        restaurant.getMenuItemList().add(foodItem);
         Restaurant savedrestaurant = restaurantRepository.save(restaurant);
         return RestaurantTransformer.ModelToResponse(savedrestaurant);
     }

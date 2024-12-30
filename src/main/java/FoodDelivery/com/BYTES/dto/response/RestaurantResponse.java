@@ -16,6 +16,6 @@ public class RestaurantResponse {
      String mobile;
      String email;
      RestaurantCategory restaurantCategory;
-     List<FoodResponse>menu;
+     List<MenuResponse>menu;
 
 }

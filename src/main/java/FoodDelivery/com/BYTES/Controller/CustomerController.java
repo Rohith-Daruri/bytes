@@ -35,3 +35,9 @@ public class CustomerController {
         }
     }
 }
+
+//controller -> api's
+
+//service -> buisiness logic
+
+//repository ->database

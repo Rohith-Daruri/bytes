@@ -27,7 +27,7 @@ public class Restaurant {
     RestaurantCategory restaurantCategory;
     boolean open;
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
-    List<Food_Item> foodItemList = new ArrayList<>();
+    List<Menu_Item> menuItemList= new ArrayList<>();
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
     List<OrderEntity>orderEntityList = new ArrayList<>();
 

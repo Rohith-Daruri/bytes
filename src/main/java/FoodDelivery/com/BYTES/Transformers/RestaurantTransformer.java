@@ -1,9 +1,8 @@
 package FoodDelivery.com.BYTES.Transformers;
 
 import FoodDelivery.com.BYTES.dto.request.RestaurantRequest;
-import FoodDelivery.com.BYTES.dto.response.FoodResponse;
+import FoodDelivery.com.BYTES.dto.response.MenuResponse;
 import FoodDelivery.com.BYTES.dto.response.RestaurantResponse;
-import FoodDelivery.com.BYTES.model.Food_Item;
 import FoodDelivery.com.BYTES.model.Restaurant;
 
 import java.util.ArrayList;
@@ -17,22 +16,22 @@ public class RestaurantTransformer {
                 .mobile(restaurantRequest.getMobile())
                 .email(restaurantRequest.getEmail())
                 .restaurantCategory(restaurantRequest.getRestaurantCategory())
-                .foodItemList(new ArrayList<>())
+                .menuItemList(new ArrayList<>())
                 .orderEntityList(new ArrayList<>())
                 .build();
     }
     public static RestaurantResponse ModelToResponse(Restaurant restaurant){
 
-        List<FoodResponse> foodResponseList =restaurant.getFoodItemList()
+        List<MenuResponse> MenuResponseList =restaurant.getMenuItemList()
                 .stream()
-                .map(foodItem -> Food_ItemTransformer.ModelToResponse(foodItem))
+                .map(foodItem -> MenuItemTransformer.ModelToResponse(foodItem))
                 .collect(Collectors.toList());
         return RestaurantResponse.builder()
                 .name(restaurant.getName())
                 .mobile(restaurant.getMobile())
                 .email(restaurant.getEmail())
                 .restaurantCategory(restaurant.getRestaurantCategory())
-                .menu(foodResponseList)
+                .menu(MenuResponseList)
                 .build();
     }
 

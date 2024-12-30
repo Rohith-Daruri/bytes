@@ -1,6 +1,5 @@
 package FoodDelivery.com.BYTES.model;
 
-import FoodDelivery.com.BYTES.Enum.CATEGORY;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -8,30 +7,23 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Data
 @Entity
+@Builder
 public class Food_Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String name;
-    @Enumerated(EnumType.STRING)
-    CATEGORY category;
+    int quantity;
     double price;
-    boolean available;
-    boolean veg;
     @ManyToOne
     @JoinColumn
     Cart cart;
+
+    @ManyToOne
+    @JoinColumn
+    Menu_Item menuItem;
     @ManyToOne
     @JoinColumn
     OrderEntity orderEntity;
-    @ManyToOne
-    @JoinColumn
-    Restaurant restaurant;
-
-    public boolean getAvailable() {
-        return available;
-    }
 }

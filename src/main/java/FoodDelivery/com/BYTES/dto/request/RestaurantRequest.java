@@ -15,6 +15,6 @@ public class RestaurantRequest {
      String name;
      String mobile;
      String email;
-    RestaurantCategory restaurantCategory;
+     RestaurantCategory restaurantCategory;
 
 }

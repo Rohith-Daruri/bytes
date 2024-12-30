@@ -1,6 +1,5 @@
 package FoodDelivery.com.BYTES.dto.response;
 
-import FoodDelivery.com.BYTES.Enum.CATEGORY;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,7 +9,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 public class FoodResponse {
-    CATEGORY category;
-    double price;
-    String type;
+    int CustomerId;
+    String CustomerEmail;
+    String RestaurantName;
+    double Price;
 }

@@ -1,9 +1,9 @@
 package FoodDelivery.com.BYTES.Repository;
 
-import FoodDelivery.com.BYTES.model.Food_Item;
+import FoodDelivery.com.BYTES.model.Menu_Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Food_ItemRepository extends JpaRepository<Food_Item,Integer> {
+public interface MenuItemRepository extends JpaRepository<Menu_Item,Integer> {
 }

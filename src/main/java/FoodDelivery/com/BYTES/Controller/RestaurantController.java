@@ -2,7 +2,7 @@ package FoodDelivery.com.BYTES.Controller;
 
 import FoodDelivery.com.BYTES.Exception.RestaurantNotFound;
 import FoodDelivery.com.BYTES.Service.RestaurantService;
-import FoodDelivery.com.BYTES.dto.request.Food_ItemRequest;
+import FoodDelivery.com.BYTES.dto.request.MenuItemRequest;
 import FoodDelivery.com.BYTES.dto.request.RestaurantRequest;
 import FoodDelivery.com.BYTES.dto.response.RestaurantResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +25,10 @@ public class RestaurantController {
         String message = restaurantService.updateStatus(id);
         return message;
     }
-    @PostMapping("/add/food/{id}")
-    public ResponseEntity addFoodToMenu(@RequestBody Food_ItemRequest foodItemRequest,@PathVariable("id") int id){
+    @PostMapping("/add/menu/{id}")
+    public ResponseEntity addFoodToMenu(@RequestBody MenuItemRequest foodItemRequest, @PathVariable("id") int id){
         try {
-            RestaurantResponse restaurantResponse = restaurantService.addFoodItem(foodItemRequest,id);
+            RestaurantResponse restaurantResponse = restaurantService.addMenuItem(foodItemRequest,id);
             return new ResponseEntity(restaurantResponse, HttpStatus.CREATED);
         }
         catch(RestaurantNotFound e){
