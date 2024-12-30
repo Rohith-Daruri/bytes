@@ -41,7 +41,9 @@ public class CustomerServiceTest {
     @Test
     public void mockFinalMethod() {
         int value = customerService.print(10,20);
+        int value1 = customerService.print(30,40);
         System.out.println(value);
+        System.out.println(value1);
         Assertions.assertEquals(30,value);
     }
 }
